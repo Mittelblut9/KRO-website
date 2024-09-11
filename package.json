@@ -41,7 +41,7 @@
     "@nuxt/typescript-runtime": "^3.0.2",
     "@nuxt/ui": "^2.18.4",
     "@pinia/nuxt": "^0.5.1",
-    "@sentry/browser": "7.107.0",
+    "@sentry/browser": "8.30.0",
     "@sentry/node": "7.107.0",
     "@sentry/profiling-node": "7.107.0",
     "aos": "^2.3.4",
