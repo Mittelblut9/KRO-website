@@ -1,0 +1,52 @@
+{
+  "name": "nuxt3-template",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "start:dev": "docker compose up -d && npm run logs",
+    "restart": "npm run stop && npm run start:dev",
+    "logs": "docker compose logs -f",
+    "stop": "docker compose down",
+    "bash:app": "docker compose exec app bash",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxt/fonts": "^0.7.1",
+    "@nuxt/image": "^1.7.0",
+    "@nuxt/typescript-build": "^3.0.2",
+    "@nuxtjs/i18n": "^8.5.1",
+    "@types/aos": "^3.0.7",
+    "husky": "^9.1.5",
+    "nuxt": "^3.12.3",
+    "nuxt-appwrite": "^1.1.0",
+    "postcss": "^8.4.40",
+    "postcss-loader": "^8.1.1",
+    "sass-loader": "^14.2.1",
+    "typescript": "^5.5.3",
+    "vue": "^3.4.38",
+    "vue-router": "^4.4.3"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-brands-svg-icons": "^6.5.2",
+    "@fortawesome/free-regular-svg-icons": "^6.6.0",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
+    "@nuxt/typescript-runtime": "^3.0.2",
+    "@nuxt/ui": "^2.18.4",
+    "@pinia/nuxt": "^0.5.1",
+    "@sentry/browser": "7.107.0",
+    "@sentry/node": "7.107.0",
+    "@sentry/profiling-node": "7.107.0",
+    "aos": "^2.3.4",
+    "bootstrap": "^5.3.3",
+    "pinia": "^2.2.0",
+    "sass": "^1.77.8"
+  }
+}

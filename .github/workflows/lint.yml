@@ -1,0 +1,29 @@
+name: Linter
+
+on:
+  pull_request_target:
+      branches: [dev, main]
+  push:
+      branches: '**'
+  
+permissions:
+  contents: write
+
+jobs:
+    test-lint:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: ${{ github.head_ref }}
+                fetch-depth: 0
+
+            - name: Install submodules
+              run: git submodule update --init --recursive
+
+            - name: Install .tools
+              run: npm --prefix .tools install
+
+            - name: Lint
+              run: npm --prefix .tools run code:lint
