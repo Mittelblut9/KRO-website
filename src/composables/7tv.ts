@@ -3,5 +3,5 @@ export const use7tv = () => {
     return `https://cdn.7tv.app/emote/${emoteId}/4x.webp`;
   };
 
-  return { getEmoteUrl }
-}
+  return { getEmoteUrl };
+};

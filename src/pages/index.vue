@@ -1,7 +1,13 @@
 <template>
     <div v-if="streamData.type">
-        <OnlineIntendComponent :stream-data="streamData" v-if="streamData.type === 'offline'" />
-        <IsLiveComponent :stream-data="streamData" v-else />
+        <OnlineIntendComponent
+            v-if="streamData.type === 'offline'"
+            :stream-data="streamData"
+        />
+        <IsLiveComponent
+            v-else
+            :stream-data="streamData"
+        />
         <div class="flex justify-center">
             <div class="md:w-1/2 w-11/12 mt-20">
                 <FaqComponent />

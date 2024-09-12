@@ -28,7 +28,7 @@ export interface Stream {
     user_name: string;
     game_id: string;
     game_name: string;
-    type: "live" | "offline";
+    type: 'live' | 'offline';
     title: string;
     viewer_count: number;
     started_at: string;

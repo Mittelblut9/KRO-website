@@ -1,15 +1,15 @@
-import client from "~/utils/postgres";
+import client from '~/utils/postgres';
 
 async function getToken(): Promise<string> {
-  const res = await fetch("https://id.twitch.tv/oauth2/token", {
-    method: "POST",
+  const res = await fetch('https://id.twitch.tv/oauth2/token', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       client_id: process.env.TWITCH_CLIENT_ID,
       client_secret: process.env.TWITCH_CLIENT_SECRET,
-      grant_type: "client_credentials",
+      grant_type: 'client_credentials',
     }),
   });
 
@@ -20,7 +20,7 @@ async function getToken(): Promise<string> {
 
 export default defineEventHandler(async (event) => {
   if (!process.env.TWITCH_CLIENT_ID) {
-    throw new Error("Missing TWITCH_CLIENT_ID");
+    throw new Error('Missing TWITCH_CLIENT_ID');
   }
 
   const userId = event.context.params?.id;
@@ -30,7 +30,7 @@ export default defineEventHandler(async (event) => {
     {
       headers: {
         Authorization: `Bearer ${await getToken()}`,
-        "client-id": process.env.TWITCH_CLIENT_ID,
+        'client-id': process.env.TWITCH_CLIENT_ID,
       },
     }
   );
@@ -46,7 +46,7 @@ export default defineEventHandler(async (event) => {
   const lastVod = await client.query('SELECT * FROM vods ORDER BY date DESC LIMIT 1').then((res) => res.rows[0]);
 
   return {
-    type: "offline",
+    type: 'offline',
     lastVod,
   };
 });

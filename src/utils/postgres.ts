@@ -1,5 +1,5 @@
-import pg from 'pg'
-const { Client } = pg
+import pg from 'pg';
+const { Client } = pg;
 
 const config = useRuntimeConfig();
 const client = new Client({
