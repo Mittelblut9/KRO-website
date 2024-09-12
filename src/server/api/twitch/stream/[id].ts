@@ -1,4 +1,4 @@
-import client from '~/utils/postgres';
+import { useDb } from "~/composables/db";
 
 async function getToken(): Promise<string> {
   const res = await fetch('https://id.twitch.tv/oauth2/token', {
@@ -43,8 +43,8 @@ export default defineEventHandler(async (event) => {
   }
 
   // If offline: look in db for most recent vod
-  const lastVod = await client.query('SELECT * FROM vods ORDER BY date DESC LIMIT 1').then((res) => res.rows[0]);
-
+  const lastVod = await useDb().query('SELECT * FROM vods ORDER BY date DESC LIMIT 1').then((res) => res.rows[0]);
+  
   return {
     type: 'offline',
     lastVod,

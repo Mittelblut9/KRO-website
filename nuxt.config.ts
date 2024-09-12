@@ -20,9 +20,6 @@ export default defineNuxtConfig({
   css: [
     '~/assets/scss/base.scss',
   ],
-  scripts: [
-    'https://embed.twitch.tv/embed/v1.js',
-  ],
   app: {
     head: {
       charset: 'utf-8',
@@ -36,7 +33,6 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/image',
     '@nuxt/fonts',
-    '@nuxt/scripts',
   ],
   plugins: [],
   nitro: {
