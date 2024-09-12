@@ -73,8 +73,4 @@ export default defineNuxtConfig({
       strictMessage: false
     },
   },
-  appwrite: {
-    endpoint: process.env.APPWRITE_ENDPOINT,
-    project: process.env.APPWRITE_PROJECT_ID,
-  },
 })
