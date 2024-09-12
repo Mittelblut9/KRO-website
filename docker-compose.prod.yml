@@ -1,0 +1,12 @@
+services:
+  app:
+    image: node:20.9
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=production
+    command: >
+      sh -c "npm install --omit=dev && npm run build && node .output/server/index.mjs"
+    ports:
+      - 80:3000
