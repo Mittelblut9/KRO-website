@@ -1,0 +1,16 @@
+header:
+    title: "Kommt Rumathra online?"
+onlineIntend:
+    yes: "JA"
+    no: "NEIN (Vielleicht)"
+    date: "Rumathra versucht am <span class=\"underline\">{date} Uhr</span> online zu gehen."
+    notFetched: "Er hat mal wieder nichts im Stream erwähnt oder ich konnte keine genaue Zeit extrahieren"
+    isLate: "Rumathra ist mal wieder zu spät."
+faq:
+    why:
+        title: "Warum?"
+        content: "Viele wollen oder können nicht bis tief in die Nacht den Stream schauen und Rumthra gibt auch nicht außerhalb von Twitch seine Streamingzeit bekannt."
+    how:
+        title: "Wie funktioniert das?"
+        content: "Der Worker überprüft intervallbasiert ob es einen neuen VOD gibt. Wenn ja, wird der VOD heruntergeladen und das Audio extrahiert, um es dann in Text umzuwandeln. Mithilfe von der ChatGPT API wird dann der Text analysiert und die relevanten Informationen extrahiert. Danke geht an Niki21.dev (https://niki2k1.dev), der das ganze entwickelt hat."
+isLive: "Rumathra is ONLINE!"
