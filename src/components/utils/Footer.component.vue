@@ -35,12 +35,6 @@ export default {
         children: [{
           label: 'Webseite',
           to: 'https://blackdayz.de'
-        }, {
-          label: 'Docs'
-        }, {
-          label: 'Roadmap'
-        }, {
-          label: 'Changelog'
         }]
       }, {
         label: 'Rechtliches',

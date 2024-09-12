@@ -7,16 +7,21 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       sentryDsn: process.env.SENTRY_DSN,
-      appwriteConfig: {
-        databaseId: process.env.APPWRITE_DATABASE_ID,
-      },
-    }
+    },
+    pg_host: process.env.POSTGRES_HOST,
+    pg_user: process.env.POSTGRES_USER,
+    pg_database: process.env.POSTGRES_DATABASE,
+    pg_password: process.env.POSTGRES_PASSWORD,
+    pg_port: process.env.POSTGRES_PORT,
   },
   colorMode: {
     preference: 'light',
   },
   css: [
     '~/assets/scss/base.scss',
+  ],
+  scripts: [
+    'https://embed.twitch.tv/embed/v1.js',
   ],
   app: {
     head: {
@@ -26,7 +31,13 @@ export default defineNuxtConfig({
     },
   },
   extends: ['@nuxt/ui-pro'],
-  modules: ['@nuxtjs/i18n', '@nuxt/ui', '@nuxt/image', '@nuxt/fonts'],
+  modules: [
+    '@nuxtjs/i18n',
+    '@nuxt/ui',
+    '@nuxt/image',
+    '@nuxt/fonts',
+    '@nuxt/scripts',
+  ],
   plugins: [],
   nitro: {
     plugins: [
