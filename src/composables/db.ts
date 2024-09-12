@@ -14,4 +14,4 @@ export const useDb = () => {
   client.connect();
 
   return client;
-}
+};
