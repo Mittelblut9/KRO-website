@@ -54,7 +54,9 @@
     "sass": "^1.78.0"
   },
   "overrides": {
-    "sharp": "^0.33.4",
+    "sharp": "^0.33.4"
+  },
+  "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "4.21.3"
   }
 }
