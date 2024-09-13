@@ -30,7 +30,7 @@
                         alt="Classic 7TV emote"
                         width="32"
                     />
-                    <span v-html="$t('onlineIntend.isLate')" />
+                    <span class="font-bold" v-html="$t('onlineIntend.isLate')" />
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@ export default {
     },
     readableOnlineIntendDate() {
       if(!this.streamData.lastVod) return '';
-      return new Date(this.streamData.lastVod.online_intend_date).toLocaleString('de-DE', {
+      return new Date(this.correctOnlineIntendDate).toLocaleString('de-DE', {
         weekday: 'long',
         year: 'numeric',
         month: 'long',
@@ -69,9 +69,13 @@ export default {
         minute: 'numeric',
       });
     },
+    correctOnlineIntendDate() {
+      if(!this.streamData.lastVod) return '';
+      return new Date(this.streamData.lastVod.online_intend_date).setMinutes(new Date().getTimezoneOffset());
+    },
     isLate() {
       if(!this.streamData.lastVod) return false;
-      return new Date(this.streamData.lastVod.online_intend_date) < new Date();
+      return new Date(this.correctOnlineIntendDate) < new Date();
     }
   },
 };
