@@ -3,7 +3,9 @@ header:
 onlineIntend:
     yes: "JA"
     no: "NEIN (Vielleicht)"
-    date: "Rumathra versucht am <span class=\"underline\">{date} Uhr</span> online zu gehen."
+    date: "Rumathra versucht {time} <span class=\"underline\">{date} Uhr</span> online zu gehen."
+    dateOther: "am"
+    dateToday: "um"
     notFetched: "Er hat mal wieder nichts im Stream erwähnt oder ich konnte keine genaue Zeit extrahieren"
     isLate: "Rumathra ist mal wieder zu spät."
 faq:

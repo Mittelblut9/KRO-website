@@ -18,7 +18,7 @@
 
         <div class="mt-10">
             <div v-if="streamData.lastVod.online_intend_date">
-                <p v-html="$t('onlineIntend.date', { date: readableOnlineIntendDate })" />
+                <p v-html="$t('onlineIntend.date', { date: readableOnlineIntendDate, time : isSameDay ? $t('onlineIntend.dateToday') : $t('onlineIntend.dateOther') })" />
             </div>
             <div v-else>
                 <p v-html="$t('onlineIntend.notFetched')" />
@@ -60,18 +60,29 @@ export default {
     },
     readableOnlineIntendDate() {
       if(!this.streamData.lastVod) return '';
-      return new Date(this.correctOnlineIntendDate).toLocaleString('de-DE', {
+
+      const optionToday = {
+        hour: 'numeric',
+        minute: 'numeric',
+      }
+
+      const optionOther = {
         weekday: 'long',
         year: 'numeric',
         month: 'long',
         day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-      });
+        ...optionToday
+      }
+      
+      return new Date(this.correctOnlineIntendDate).toLocaleString('de-DE', this.isSameDay ? optionToday : optionOther);
     },
     correctOnlineIntendDate() {
       if(!this.streamData.lastVod) return '';
       return new Date(this.streamData.lastVod.online_intend_date).setMinutes(new Date().getTimezoneOffset());
+    },
+    isSameDay() {
+      if(!this.streamData.lastVod) return false;
+      return new Date(this.correctOnlineIntendDate).getDate() === new Date().getDate();
     },
     isLate() {
       if(!this.streamData.lastVod) return false;
