@@ -17,6 +17,9 @@
     "prepare": "husky"
   },
   "devDependencies": {
+    "@iconify-json/gravity-ui": "^1.2.1",
+    "@iconify-json/ic": "^1.2.0",
+    "@iconify-json/simple-icons": "^1.2.2",
     "@nuxt/devtools": "latest",
     "@nuxt/fonts": "^0.7.2",
     "@nuxt/image": "^1.7.0",
@@ -57,7 +60,7 @@
     "sharp": "^0.33.4"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.21.3",
-    "@esbuild/linux-x64": "0.23.1"
+    "@esbuild/linux-x64": "0.23.1",
+    "@rollup/rollup-linux-x64-gnu": "4.21.3"
   }
 }
