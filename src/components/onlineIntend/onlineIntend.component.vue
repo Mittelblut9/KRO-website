@@ -62,8 +62,8 @@ export default {
       if(!this.streamData.lastVod) return '';
 
       const optionToday = {
-        hour: 'numeric',
-        minute: 'numeric',
+        hour: 'numeric' as 'numeric',
+        minute: 'numeric' as 'numeric',
       }
 
       const optionOther = {
@@ -78,7 +78,8 @@ export default {
     },
     correctOnlineIntendDate() {
       if(!this.streamData.lastVod) return '';
-      return new Date(this.streamData.lastVod.online_intend_date).setMinutes(new Date().getTimezoneOffset());
+      const minutes = new Date(this.streamData.lastVod.online_intend_date).getMinutes();
+      return new Date(this.streamData.lastVod.online_intend_date).setMinutes(minutes + new Date(this.streamData.lastVod.online_intend_date).getTimezoneOffset());
     },
     isSameDay() {
       if(!this.streamData.lastVod) return false;
