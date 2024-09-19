@@ -15,10 +15,6 @@ export default defineNuxtPlugin(() => {
         integrations: [
             Sentry.browserTracingIntegration(),
             Sentry.browserProfilingIntegration(),
-            Sentry.replayIntegration({
-                maskAllText: true,
-                blockAllMedia: true,
-            }),
         ],
         tracesSampleRate: 0.25,
         tracePropagationTargets: ['http://127.0.0.1:3000'],
