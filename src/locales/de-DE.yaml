@@ -6,7 +6,7 @@ onlineIntend:
     date: "Rumathra versucht {time} <span class=\"underline\">{date} Uhr</span> online zu gehen."
     dateOther: "am"
     dateToday: "um"
-    notFetched: "Er hat mal wieder nichts im Stream erwähnt oder ich konnte keine genaue Zeit extrahieren"
+    notFetched: "Er kommt wahrscheinlich heute nicht online."
     isLate: "Rumathra ist mal wieder zu spät."
 faq:
     why:

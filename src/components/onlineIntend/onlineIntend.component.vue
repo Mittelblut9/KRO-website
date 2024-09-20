@@ -13,25 +13,30 @@
             v-else
             class="text-5xl mt-10 font-extrabold text-red-400"
         >
-            NEIN (Vielleicht)
+            NEIN
         </h1>
 
         <div class="mt-10">
             <div v-if="streamData.lastVod.online_intend_date">
-                <p v-html="$t('onlineIntend.date', { date: readableOnlineIntendDate, time : isSameDay ? $t('onlineIntend.dateToday') : $t('onlineIntend.dateOther') })" />
-            </div>
-            <div v-else>
-                <p v-html="$t('onlineIntend.notFetched')" />
-            </div>
-            <div v-if="isLate">
-                <div class="flex mt-10 justify-center">
+                <p v-html="$t('onlineIntend.date', { date: readableOnlineIntendDate, time: isSameDay ? $t('onlineIntend.dateToday') : $t('onlineIntend.dateOther') })" />
+
+                <div
+                    v-if="isLate"
+                    class="flex mt-10 justify-center"
+                >
                     <NuxtImg
                         :src="seventTv.getEmoteUrl('630db7e07b84e74996da9552')"
                         alt="Classic 7TV emote"
                         width="32"
                     />
-                    <span class="font-bold" v-html="$t('onlineIntend.isLate')" />
+                    <span
+                        class="font-bold"
+                        v-html="$t('onlineIntend.isLate')"
+                    />
                 </div>
+            </div>
+            <div v-else>
+                <p v-html="$t('onlineIntend.notFetched')" />
             </div>
         </div>
     </div>
@@ -64,7 +69,7 @@ export default {
       const optionToday = {
         hour: 'numeric' as 'numeric',
         minute: 'numeric' as 'numeric',
-      }
+      };
 
       const optionOther = {
         weekday: 'long',
@@ -72,7 +77,7 @@ export default {
         month: 'long',
         day: 'numeric',
         ...optionToday
-      }
+      };
       
       return new Date(this.correctOnlineIntendDate).toLocaleString('de-DE', this.isSameDay ? optionToday : optionOther);
     },
