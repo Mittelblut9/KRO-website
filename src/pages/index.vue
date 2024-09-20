@@ -1,4 +1,4 @@
-<template> <!--streamData.type-->
+<template>
     <div>
         <OnlineIntendComponent
             v-if="streamData.type === 'offline'"
@@ -8,7 +8,10 @@
             v-else-if="streamData.type === 'live'"
             :stream-data="streamData"
         />
-        <div v-else class="flex justify-center align-center mt-28">
+        <div
+            v-else
+            class="flex justify-center align-center mt-28"
+        >
             <div>
                 <div class="flex justify-center">
                     <USkeleton class="h-32 w-[200px]" />
