@@ -33,6 +33,9 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/image',
     '@nuxt/fonts',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots',
+    '@nuxtjs/seo',
   ],
   plugins: [],
   nitro: {
@@ -54,6 +57,11 @@ export default defineNuxtConfig({
     build: {
       minify: false
     }
+  },
+  site: {
+    url: 'https://kommtrumathraonline.de',
+    name: 'Kommt Rumathra Online?',
+    description: 'Kommt Rumathra Online? Ist eine Frage die stellt sich jeder Rumathra Fan. Hier findest du die Antwort.',
   },
   i18n: {
     lazy: true,
