@@ -56,7 +56,7 @@
     "bootstrap": "^5.3.3",
     "nuxt-i18n-micro": "^1.15.0",
     "pg": "^8.13.0",
-    "pinia": "^2.2.0",
+    "pinia": "^2.3.0",
     "sass": "^1.78.0"
   },
   "overrides": {
