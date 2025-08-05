@@ -9,12 +9,9 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "start:dev": "docker compose up -d && npm run logs",
-    "restart": "npm run stop && npm run start:dev",
-    "logs": "docker compose logs -f",
-    "stop": "docker compose down",
-    "bash:app": "docker compose exec app bash",
-    "prepare": "husky"
+    "prepare": "husky",
+    "code:format": "eslint --fix .",
+    "code:lint": "eslint ."
   },
   "devDependencies": {
     "@iconify-json/gravity-ui": "^1.2.7",
@@ -45,6 +42,7 @@
     "@fortawesome/free-brands-svg-icons": "^7.0.0",
     "@fortawesome/free-regular-svg-icons": "^7.0.0",
     "@fortawesome/vue-fontawesome": "^3.1.1",
+    "@nuxt/eslint": "^1.7.1",
     "@nuxt/typescript-runtime": "^3.0.2",
     "@nuxt/ui": "^3.3.0",
     "@nuxt/ui-pro": "^3.3.0",
