@@ -18,7 +18,7 @@ export default defineNuxtConfig({
     preference: 'light',
   },
   css: [
-    '~/assets/scss/base.scss',
+    '~/assets/css/main.css',
   ],
   app: {
     head: {
@@ -26,10 +26,9 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
     },
   },
-  extends: ['@nuxt/ui-pro'],
   modules: [
     '@nuxtjs/i18n',
-    '@nuxt/ui',
+    '@nuxt/ui-pro',
     '@nuxt/image',
     '@nuxt/fonts',
     '@nuxtjs/sitemap',
