@@ -1,7 +1,8 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import { generateJsonTranslations } from './.scripts/i18n/loadYamlTranslations';
+
 export default defineNuxtConfig({
   ssr: false,
-  compatibilityDate: '2024-07-21',
+  compatibilityDate: '2025-08-06',
   devtools: { enabled: true },
   srcDir: 'src',
   runtimeConfig: {
@@ -61,9 +62,20 @@ export default defineNuxtConfig({
     name: 'Kommt Rumathra Online?',
     description: 'Kommt Rumathra Online? Ist eine Frage die stellt sich jeder Rumathra Fan. Hier findest du die Antwort.',
   },
+  hooks: {
+    'build:before': () => {
+      generateJsonTranslations();
+    },
+    'webpack:change': () => {
+      generateJsonTranslations();
+    },
+    'builder:watch': () => {
+      generateJsonTranslations();
+    },
+  },
   i18n: {
     lazy: true,
-    langDir: 'locales/',
+    langDir: 'locales/.generated/',
     strategy: 'no_prefix',
     defaultLocale: 'de-DE',
     locales: [
@@ -71,12 +83,12 @@ export default defineNuxtConfig({
         code: 'de-DE',
         language: 'de-DE',
         name: 'Deutsch',
-        file: 'de-DE.yaml'
-      }
+        file: 'de-DE.json',
+      },
     ],
     compilation: {
       escapeHtml: false,
       strictMessage: false
-    },
+    }
   },
 })
