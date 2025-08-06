@@ -44,56 +44,56 @@
 
 <script lang="ts">
 export default {
-  name: 'OnlineIntendComponent',
-  props: {
-    streamData: {
-      type: Object as PropType<Stream>,
-      default: () => ({}),
-      required: true
-    }
-  },
-  data() {
-    return {
-      currentTime: ref(0),
-      seventTv: use7tv()
-    };
-  },
-  computed: {
-    isOnline() {
-      if(!this.streamData.lastVod) return false;
-      return this.streamData.lastVod.online_intend_date ? true : false;
+    name: 'OnlineIntendComponent',
+    props: {
+        streamData: {
+            type: Object as PropType<Stream>,
+            default: () => ({}),
+            required: true
+        }
     },
-    readableOnlineIntendDate() {
-      if(!this.streamData.lastVod) return '';
+    data() {
+        return {
+            currentTime: ref(0),
+            seventTv: use7tv()
+        };
+    },
+    computed: {
+        isOnline() {
+            if (!this.streamData.lastVod) return false;
+            return this.streamData.lastVod.online_intend_date ? true : false;
+        },
+        readableOnlineIntendDate() {
+            if (!this.streamData.lastVod) return '';
 
-      const optionToday = {
-        hour: 'numeric' as 'numeric',
-        minute: 'numeric' as 'numeric',
-      };
+            const optionToday = {
+                hour: 'numeric' as const,
+                minute: 'numeric' as const,
+            };
 
-      const optionOther = {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        ...optionToday
-      };
-      
-      return new Date(this.correctOnlineIntendDate).toLocaleString('de-DE', this.isSameDay ? optionToday : optionOther);
+            const optionOther = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                ...optionToday
+            };
+
+            return new Date(this.correctOnlineIntendDate).toLocaleString('de-DE', this.isSameDay ? optionToday : optionOther);
+        },
+        correctOnlineIntendDate() {
+            if (!this.streamData.lastVod) return '';
+            const minutes = new Date(this.streamData.lastVod.online_intend_date).getMinutes();
+            return new Date(this.streamData.lastVod.online_intend_date).setMinutes(minutes + new Date(this.streamData.lastVod.online_intend_date).getTimezoneOffset());
+        },
+        isSameDay() {
+            if (!this.streamData.lastVod) return false;
+            return new Date(this.correctOnlineIntendDate).getDate() === new Date().getDate();
+        },
+        isLate() {
+            if (!this.streamData.lastVod) return false;
+            return new Date(this.correctOnlineIntendDate) < new Date();
+        }
     },
-    correctOnlineIntendDate() {
-      if(!this.streamData.lastVod) return '';
-      const minutes = new Date(this.streamData.lastVod.online_intend_date).getMinutes();
-      return new Date(this.streamData.lastVod.online_intend_date).setMinutes(minutes + new Date(this.streamData.lastVod.online_intend_date).getTimezoneOffset());
-    },
-    isSameDay() {
-      if(!this.streamData.lastVod) return false;
-      return new Date(this.correctOnlineIntendDate).getDate() === new Date().getDate();
-    },
-    isLate() {
-      if(!this.streamData.lastVod) return false;
-      return new Date(this.correctOnlineIntendDate) < new Date();
-    }
-  },
 };
 </script>

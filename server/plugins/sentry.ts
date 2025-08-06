@@ -1,6 +1,6 @@
 import * as Sentry from '@sentry/node';
 
-export default defineNitroPlugin((nitroApp) => {    
+export default defineNitroPlugin((nitroApp) => {
     const {
         public: { sentryDsn },
     } = useRuntimeConfig();

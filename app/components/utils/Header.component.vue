@@ -5,7 +5,7 @@
                 <div class="flex items-center">
                     {{ $t('header.title') }}
                     <NuxtImg
-                        src="/img/Rumathra.png" 
+                        src="/img/Rumathra.png"
                         alt="Rumathra"
                         class="rumathra-logo"
                     />
@@ -17,12 +17,12 @@
 
 <script lang="ts">
 export default {
-  name: 'HeaderComponent',
-  data() {
-    return {
-      links: []
-    };
-  },
+    name: 'HeaderComponent',
+    data() {
+        return {
+            links: []
+        };
+    },
 };
 </script>
 

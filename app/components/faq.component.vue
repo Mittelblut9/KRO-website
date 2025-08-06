@@ -37,20 +37,20 @@
 
 <script lang="ts">
 export default {
-  name: 'FAQComponent',
-  data() {
-    return {
-      items: [{
-          label: this.$t('faq.why.title'),
-          icon: 'i-ic-round-help',
-          defaultOpen: true,
-          content: this.$t('faq.why.content')
-        }, {
-          label: this.$t('faq.how.title'),
-          icon: 'i-gravity-ui-person-worker',
-          content: this.$t('faq.how.content')
-        }]
-    };
-  }
+    name: 'FAQComponent',
+    data() {
+        return {
+            items: [{
+                label: this.$t('faq.why.title'),
+                icon: 'i-ic-round-help',
+                defaultOpen: true,
+                content: this.$t('faq.why.content')
+            }, {
+                label: this.$t('faq.how.title'),
+                icon: 'i-gravity-ui-person-worker',
+                content: this.$t('faq.how.content')
+            }]
+        };
+    }
 };
 </script>

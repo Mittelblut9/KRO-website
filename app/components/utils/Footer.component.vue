@@ -27,33 +27,33 @@
 
 <script lang="ts">
 export default {
-  name: 'FooterComponent',
-  data() {
-    return {
-      links: [{
-        label: 'BlackDayz',
-        children: [{
-          label: 'Webseite',
-          to: 'https://blackdayz.de'
-        }]
-      }, {
-        label: 'Rechtliches',
-        children: [{
-          label: 'Impressum',
-          to: 'https://blackdayz.de/impressum'
-        }]
-      }, {
-        label: 'Über die Webseite',
-        children: [{
-          label: 'Original',
-          to: 'https://github.com/KommtKevinOnline'
-        }, {
-          label: 'Worker',
-          to: 'https://github.com/Mittelblut9/KRO-worker'
-        }]
-      }]
-    };
-  },
+    name: 'FooterComponent',
+    data() {
+        return {
+            links: [{
+                label: 'BlackDayz',
+                children: [{
+                    label: 'Webseite',
+                    to: 'https://blackdayz.de'
+                }]
+            }, {
+                label: 'Rechtliches',
+                children: [{
+                    label: 'Impressum',
+                    to: 'https://blackdayz.de/impressum'
+                }]
+            }, {
+                label: 'Über die Webseite',
+                children: [{
+                    label: 'Original',
+                    to: 'https://github.com/KommtKevinOnline'
+                }, {
+                    label: 'Worker',
+                    to: 'https://github.com/Mittelblut9/KRO-worker'
+                }]
+            }]
+        };
+    },
 };
 </script>
 

@@ -38,15 +38,15 @@ export interface Stream {
     tags: string[];
     is_mature: boolean;
     lastVod?: VodInterface;
-  }
-
-export interface StreamsResponse {
-data: Stream[];
-pagination: any;
 }
 
-export interface TokenResponse { 
-    access_token: string
-    expires_in: number
-    token_type: string
+export interface StreamsResponse {
+    data: Stream[];
+    pagination: any;
+}
+
+export interface TokenResponse {
+    access_token: string;
+    expires_in: number;
+    token_type: string;
 }

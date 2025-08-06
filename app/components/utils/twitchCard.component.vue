@@ -32,19 +32,19 @@
 
 <script lang="ts">
 export default {
-  name: 'TwitchCardComponent',
-  props: {
-    streamInfo: {
-      type: Object as () => Stream,
-      default: () => ({}),
-      required: true,
+    name: 'TwitchCardComponent',
+    props: {
+        streamInfo: {
+            type: Object as () => Stream,
+            default: () => ({}),
+            required: true,
+        },
     },
-  },
-  computed: {
-    thumbnail() {
-      return this.streamInfo.thumbnail_url.replace('{width}', '1920').replace('{height}', '1080');
+    computed: {
+        thumbnail() {
+            return this.streamInfo.thumbnail_url.replace('{width}', '1920').replace('{height}', '1080');
+        },
     },
-  },
 };
 </script>
 

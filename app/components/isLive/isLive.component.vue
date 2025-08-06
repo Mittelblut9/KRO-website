@@ -22,18 +22,18 @@
 
 <script lang="ts">
 export default {
-  name: 'IsLiveComponent',
-  props: {
-    streamData: {
-      type: Object as PropType<Stream>,
-      default: () => ({}),
-      required: true
+    name: 'IsLiveComponent',
+    props: {
+        streamData: {
+            type: Object as PropType<Stream>,
+            default: () => ({}),
+            required: true
+        }
+    },
+    data() {
+        return {
+            sevenTv: use7tv()
+        };
     }
-  },
-  data() {
-    return {
-      sevenTv: use7tv()
-    };
-  }
 };
 </script>
