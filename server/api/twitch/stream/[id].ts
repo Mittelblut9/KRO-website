@@ -1,5 +1,3 @@
-import { useDb } from '~/composables/db';
-
 async function getToken(): Promise<string> {
     const res = await fetch('https://id.twitch.tv/oauth2/token', {
         method: 'POST',

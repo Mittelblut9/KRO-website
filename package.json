@@ -51,6 +51,8 @@
     "@sentry/browser": "10.1.0",
     "@sentry/node": "^10.1.0",
     "@sentry/profiling-node": "10.1.0",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@tailwindcss/vite": "^4.1.11",
     "@types/js-yaml": "^4.0.9",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.7",
@@ -58,7 +60,8 @@
     "nuxt-i18n-micro": "^1.88.1",
     "pg": "^8.16.3",
     "pinia": "^3.0.3",
-    "sass": "^1.89.2"
+    "sass": "^1.89.2",
+    "tailwindcss": "^4.1.11"
   },
   "overrides": {
     "sharp": "^0.33.4"

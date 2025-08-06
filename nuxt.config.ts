@@ -46,17 +46,11 @@ export default defineNuxtConfig({
         pg_password: process.env.POSTGRES_PASSWORD,
         pg_port: process.env.POSTGRES_PORT,
     },
-    srcDir: 'src',
     extensions: ['ts', 'js'],
     build: {
         transpile: ['sharp']
     },
     compatibilityDate: '2025-08-06',
-    nitro: {
-        plugins: [
-            '~/server/plugins/sentry.ts',
-        ],
-    },
     vite: {
         build: {
             minify: false
