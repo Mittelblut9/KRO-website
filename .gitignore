@@ -25,3 +25,7 @@ logs
 
 # MACOS
 ._*
+
+## i18n ##
+i18n/locales/.generated/*
+## i18n ##
