@@ -18,5 +18,5 @@
 <script setup lang="ts">
 useSeoMeta({
     title: 'Kommt Rumathra Online?'
-})
+});
 </script>
