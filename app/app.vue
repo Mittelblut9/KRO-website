@@ -5,13 +5,9 @@
             position: 'top-right',
         }"
     >
-        <HeaderComponent />
-        <UMain class="overflow-x-hidden">
-            <NuxtLayout>
-                <NuxtPage />
-            </NuxtLayout>
-        </UMain>
-        <FooterComponent />
+        <NuxtLayout>
+            <NuxtPage />
+        </NuxtLayout>
     </UApp>
 </template>
 

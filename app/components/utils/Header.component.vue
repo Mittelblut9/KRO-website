@@ -1,7 +1,7 @@
 <template>
     <div>
         <UHeader :links="links">
-            <template #logo>
+            <template #left>
                 <div class="flex items-center">
                     {{ $t('header.title') }}
                     <NuxtImg
