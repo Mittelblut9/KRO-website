@@ -4,7 +4,7 @@
             <template #left>
                 <div class="flex items-center">
                     {{ $t('header.title') }}
-                    <NuxtImg
+                    <img
                         src="/img/Rumathra.png"
                         alt="Rumathra"
                         class="rumathra-logo"
