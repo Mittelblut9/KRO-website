@@ -8,7 +8,7 @@
                         src="/img/Rumathra.png"
                         alt="Rumathra"
                         class="rumathra-logo"
-                    />
+                    >
                 </div>
             </template>
         </UHeader>
