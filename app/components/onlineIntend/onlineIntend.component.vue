@@ -78,17 +78,17 @@ export default {
     computed: {
         readableOnlineIntendDate(): string {
             if (!this.streamData.lastVod?.online_intend_date) return '';
-            
-            const options: Intl.DateTimeFormatOptions = this.isSameDay 
+
+            const options: Intl.DateTimeFormatOptions = this.isSameDay
                 ? { hour: 'numeric', minute: 'numeric' }
-                : { 
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: 'numeric',
-                    minute: 'numeric'
-                };
+                : {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: 'numeric',
+                        minute: 'numeric'
+                    };
 
             return new Date(this.correctOnlineIntendDate)
                 .toLocaleString('de-DE', options);
@@ -102,9 +102,9 @@ export default {
             if (!this.streamData.lastVod?.online_intend_date) return false;
             const targetDate = new Date(this.correctOnlineIntendDate);
             const today = new Date();
-            return targetDate.getDate() === today.getDate() && 
-                   targetDate.getMonth() === today.getMonth() && 
-                   targetDate.getFullYear() === today.getFullYear();
+            return targetDate.getDate() === today.getDate()
+                && targetDate.getMonth() === today.getMonth()
+                && targetDate.getFullYear() === today.getFullYear();
         },
         isLate(): boolean {
             if (!this.streamData.lastVod?.online_intend_date) return false;
