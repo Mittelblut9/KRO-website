@@ -10,10 +10,10 @@
             JA
         </h1>
         <h1
-            v-else-if="streamData.lastVod.vilt_online"
+            v-else-if="streamData.lastVod.maybe_online"
             class="text-5xl mt-10 font-extrabold text-yellow-400"
         >
-            VILLEICHT
+            VIELLEICHT
         </h1>
         <h1
             v-else
@@ -40,7 +40,7 @@
                     />
                 </div>
             </div>
-            <div v-else-if="streamData.lastVod.vilt_online">
+            <div v-else-if="streamData.lastVod.maybe_online">
                 <p>Rumathra ist sich nicht sicher, ob er streamen wird</p>
             </div>
             <div v-else>
@@ -52,13 +52,7 @@
 
 <script lang="ts">
 import type { PropType } from 'vue';
-
-interface Stream {
-    lastVod?: {
-        online_intend_date?: string;
-        vilt_online?: boolean;
-    };
-}
+import type { Stream } from '~/shared/utils/stream.interface'; // Import aus shared Ordner
 
 export default {
     name: 'OnlineIntendComponent',
