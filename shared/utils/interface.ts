@@ -19,6 +19,7 @@ export interface VodInterface {
     online_intend_date: string;
     duration: number;
     vodid: string;
+    maybe_online: boolean;
 }
 
 export interface Stream {
