@@ -52,7 +52,7 @@
 
 <script lang="ts">
 import type { PropType } from 'vue';
-import type { Stream } from '~/shared/utils/stream.interface'; // Import aus shared Ordner
+import type { Stream } from '~/shared/utils/stream.interface'; 
 
 export default {
     name: 'OnlineIntendComponent',
