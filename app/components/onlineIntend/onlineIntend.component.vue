@@ -10,6 +10,12 @@
             JA
         </h1>
         <h1
+            v-else-if="streamData.lastVod.maybe_online"
+            class="text-5xl mt-10 font-extrabold text-yellow-400"
+        >
+            VIELLEICHT
+        </h1>
+        <h1
             v-else
             class="text-5xl mt-10 font-extrabold text-red-400"
         >
@@ -19,7 +25,6 @@
         <div class="mt-10">
             <div v-if="streamData.lastVod.online_intend_date">
                 <p v-html="$t('onlineIntend.date', { date: readableOnlineIntendDate, time: isSameDay ? $t('onlineIntend.dateToday') : $t('onlineIntend.dateOther') })" />
-
                 <div
                     v-if="isLate"
                     class="flex mt-10 justify-center"
@@ -35,6 +40,9 @@
                     />
                 </div>
             </div>
+            <div v-else-if="streamData.lastVod.maybe_online">
+                <p>Rumathra ist sich nicht sicher, ob er streamen wird</p>
+            </div>
             <div v-else>
                 <p v-html="$t('onlineIntend.notFetched')" />
             </div>
@@ -43,57 +51,67 @@
 </template>
 
 <script lang="ts">
+import { computed } from 'vue'
+import type { PropType } from 'vue'
+
 export default {
     name: 'OnlineIntendComponent',
     props: {
         streamData: {
             type: Object as PropType<Stream>,
-            default: () => ({}),
-            required: true
+            required: true,
+            default: () => ({ lastVod: null })
         }
     },
-    data() {
+    setup(props) {
+        const seventTv = use7tv()
+
+        const correctOnlineIntendDate = computed(() => {
+            if (!props.streamData.lastVod?.online_intend_date) return 0
+            const date = new Date(props.streamData.lastVod.online_intend_date)
+            return date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
+        })
+
+        const isSameDay = computed(() => {
+            if (!props.streamData.lastVod?.online_intend_date) return false
+            const targetDate = new Date(correctOnlineIntendDate.value)
+            const today = new Date()
+            return (
+                targetDate.getDate() === today.getDate() &&
+                targetDate.getMonth() === today.getMonth() &&
+                targetDate.getFullYear() === today.getFullYear()
+            )
+        })
+
+        const readableOnlineIntendDate = computed(() => {
+            if (!props.streamData.lastVod?.online_intend_date) return ''
+
+            const options: Intl.DateTimeFormatOptions = isSameDay.value
+                ? { hour: 'numeric', minute: 'numeric' }
+                : {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: 'numeric'
+                }
+
+            return new Date(correctOnlineIntendDate.value)
+                .toLocaleString('de-DE', options)
+        })
+
+        const isLate = computed(() => {
+            if (!props.streamData.lastVod?.online_intend_date) return false
+            return new Date(correctOnlineIntendDate.value) < new Date()
+        })
+
         return {
-            currentTime: ref(0),
-            seventTv: use7tv()
-        };
-    },
-    computed: {
-        isOnline() {
-            if (!this.streamData.lastVod) return false;
-            return this.streamData.lastVod.online_intend_date ? true : false;
-        },
-        readableOnlineIntendDate() {
-            if (!this.streamData.lastVod) return '';
-
-            const optionToday = {
-                hour: 'numeric' as const,
-                minute: 'numeric' as const,
-            };
-
-            const optionOther = {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                ...optionToday
-            };
-
-            return new Date(this.correctOnlineIntendDate).toLocaleString('de-DE', this.isSameDay ? optionToday : optionOther);
-        },
-        correctOnlineIntendDate() {
-            if (!this.streamData.lastVod) return '';
-            const minutes = new Date(this.streamData.lastVod.online_intend_date).getMinutes();
-            return new Date(this.streamData.lastVod.online_intend_date).setMinutes(minutes + new Date(this.streamData.lastVod.online_intend_date).getTimezoneOffset());
-        },
-        isSameDay() {
-            if (!this.streamData.lastVod) return false;
-            return new Date(this.correctOnlineIntendDate).getDate() === new Date().getDate();
-        },
-        isLate() {
-            if (!this.streamData.lastVod) return false;
-            return new Date(this.correctOnlineIntendDate) < new Date();
+            seventTv,
+            readableOnlineIntendDate,
+            isSameDay,
+            isLate
         }
-    },
-};
+    }
+}
 </script>

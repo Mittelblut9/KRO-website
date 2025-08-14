@@ -1,18 +1,13 @@
-import pg from 'pg';
+import postgres from 'postgres'
+import { drizzle } from 'drizzle-orm/postgres-js'
 
-const { Client } = pg;
+const runtimeConfig = useRuntimeConfig()
 
-export const useDb = () => {
-    const config = useRuntimeConfig();
-    const client = new Client({
-        user: config.pg_user,
-        host: config.pg_host,
-        database: config.pg_database,
-        password: config.pg_password,
-        port: parseInt(config.pg_port),
-    });
+export const useDrizzleDB = () => {
+  const connectionString = `postgres://${runtimeConfig.pgUser}:${runtimeConfig.pgPassword}@${runtimeConfig.pgHost}:${runtimeConfig.pgPort}/${runtimeConfig.pgDatabase}`
 
-    client.connect();
+  const client = postgres(connectionString)
+  return drizzle(client, { schema })
+}
 
-    return client;
-};
+export type DrizzleDB = ReturnType<typeof useDrizzleDB>
