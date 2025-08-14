@@ -40,7 +40,7 @@ export interface Stream {
     lastVod?: VodInterface;
 }
 
-export interface StreamsResponse {
+export interface StreamResponse {
     data: Stream[];
     pagination: any;
 }

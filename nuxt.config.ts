@@ -40,11 +40,11 @@ export default defineNuxtConfig({
         public: {
             sentryDsn: process.env.SENTRY_DSN,
         },
-        pg_host: process.env.POSTGRES_HOST,
-        pg_user: process.env.POSTGRES_USER,
-        pg_database: process.env.POSTGRES_DATABASE,
-        pg_password: process.env.POSTGRES_PASSWORD,
-        pg_port: process.env.POSTGRES_PORT,
+        pgHost: process.env.POSTGRES_HOST,
+        pgUser: process.env.POSTGRES_USER,
+        pgDatabase: process.env.POSTGRES_DATABASE,
+        pgPassword: process.env.POSTGRES_PASSWORD,
+        pgPort: process.env.POSTGRES_PORT,
     },
     extensions: ['ts', 'js'],
     build: {
@@ -68,7 +68,6 @@ export default defineNuxtConfig({
         },
     },
     i18n: {
-        lazy: true,
         langDir: 'locales/.generated/',
         strategy: 'no_prefix',
         defaultLocale: 'de-DE',
