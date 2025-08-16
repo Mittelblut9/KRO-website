@@ -5,6 +5,10 @@ RUN apt update && apt install -y curl python3 make g++ build-essential
 
 FROM base AS build
 
+RUN --mount=type=secret,id=NUXT_UI_PRO_LICENSE \
+    NUXT_UI_PRO_LICENSE=$(cat /run/secrets/NUXT_UI_PRO_LICENSE) \
+    npm ci
+
 COPY . /app
 WORKDIR /app
 

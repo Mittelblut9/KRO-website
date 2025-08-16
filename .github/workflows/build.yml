@@ -28,5 +28,5 @@ jobs:
                 file: ./.docker/Dockerfile
                 push: true
                 tags: blackdayz/kommtrumathraonline-web:latest
-                build-args: |
-                  "NUXT_UI_PRO_LICENSE=${{ secrets.NUXT_UI_PRO_LICENSE }}"
+                secrets: |
+                  NUXT_UI_PRO_LICENSE=${{ secrets.NUXT_UI_PRO_LICENSE }}
