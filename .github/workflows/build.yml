@@ -27,6 +27,6 @@ jobs:
                 context: .
                 file: ./.docker/Dockerfile
                 push: true
-                tags: mittelblut9/kommtrumathraonline-web:latest
+                tags: docker/kommtrumathraonline-web:latest
                 secrets: |
                   NUXT_UI_PRO_LICENSE=${{ secrets.NUXT_UI_PRO_LICENSE }}
