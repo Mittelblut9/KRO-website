@@ -7,7 +7,6 @@ FROM base AS build
 
 RUN --mount=type=secret,id=NUXT_UI_PRO_LICENSE \
     NUXT_UI_PRO_LICENSE=$(cat /run/secrets/NUXT_UI_PRO_LICENSE) \
-    npm ci
 
 COPY . /app
 WORKDIR /app
