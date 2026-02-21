@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="false">
         <OnlineIntendComponent
             v-if="streamData.type === 'offline'"
             :stream-data="streamData"
@@ -27,6 +27,7 @@
             </div>
         </div>
     </div>
+    <PublicAnnouncement />
 </template>
 
 <script lang="ts">
@@ -38,7 +39,7 @@ export default {
         };
     },
     beforeMount() {
-        this.getStreamData();
+        // this.getStreamData();
     },
     methods: {
         async getStreamData() {
